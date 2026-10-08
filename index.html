@@ -3,69 +3,44 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Last Rung: Zıplamalarını zamanla, tuzaklardan kaç ve zirveye ulaş.">
-  <title>Last Rung | EbMobile</title>
+  <meta name="description" content="EbMobile mobil uygulamaları ve oyunları.">
+  <title>EbMobile</title>
   <style>
-    :root { --navy:#111b44; --purple:#6150e8; --aqua:#20cdf2; --yellow:#ffd244; --mist:#edf9ff; }
-    * { box-sizing:border-box; } html { scroll-behavior:smooth; }
-    body { margin:0; overflow-x:hidden; color:var(--navy); background:var(--mist); font:16px/1.6 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
-    a { color:inherit; }
-    .hero { position:relative; isolation:isolate; min-height:min(780px,100vh); overflow:hidden; color:#fff; background:linear-gradient(145deg,#168fe8 0%,#20c9f1 47%,#b9f4ff 100%); }
-    .hero::before,.hero::after { position:absolute; z-index:-1; content:""; border-radius:50%; filter:blur(2px); }
-    .hero::before { width:48vw; height:48vw; right:-15vw; bottom:-24vw; background:rgba(255,255,255,.45); }
-    .hero::after { width:32vw; height:32vw; top:-18vw; left:-10vw; background:rgba(255,255,255,.22); }
-    .topbar,.hero-content,.details { width:min(1120px,calc(100% - 48px)); margin:auto; }
-    .topbar { display:flex; align-items:center; justify-content:space-between; padding-top:24px; }
-    .brand { display:flex; align-items:center; gap:9px; font-weight:850; letter-spacing:-.02em; text-decoration:none; }
-    .brand span { display:grid; width:30px; height:30px; place-items:center; border:2px solid #fff; border-radius:9px; font-weight:900; }
-    .privacy { color:rgba(255,255,255,.9); font-weight:700; font-size:.92rem; text-decoration:none; }
-    .hero-content { display:grid; grid-template-columns:1fr .9fr; align-items:center; gap:42px; min-height:690px; padding:50px 0 76px; }
-    .eyebrow { display:inline-flex; padding:7px 13px; border:1px solid rgba(255,255,255,.5); border-radius:999px; background:rgba(16,46,136,.15); font-weight:800; font-size:.78rem; letter-spacing:.09em; text-transform:uppercase; }
-    h1 { max-width:600px; margin:18px 0; font-size:clamp(3.6rem,8vw,6.5rem); line-height:.88; letter-spacing:-.075em; text-shadow:0 4px 0 rgba(19,50,130,.14); }
-    .lead { max-width:510px; margin:0 0 28px; color:#eafcff; font-size:clamp(1.05rem,2vw,1.25rem); font-weight:600; }
-    .play-button { display:inline-flex; align-items:center; gap:12px; padding:14px 20px 14px 16px; border-radius:14px; background:#151e47; box-shadow:0 8px 0 rgba(10,22,80,.24); color:#fff; font-weight:800; text-decoration:none; transition:transform .18s ease,box-shadow .18s ease; }
-    .play-button:hover,.play-button:focus-visible { transform:translateY(-3px); box-shadow:0 11px 0 rgba(10,22,80,.2); outline:none; }
-    .play-icon { display:grid; width:31px; height:31px; place-items:center; border-radius:50%; background:var(--yellow); color:#17214c; font-size:.78rem; }
-    .art { position:relative; justify-self:end; width:min(430px,100%); transform:rotate(3deg); }
-    .art::after { position:absolute; z-index:-1; right:4%; bottom:3%; width:86%; height:13%; content:""; border-radius:50%; background:rgba(0,81,175,.27); filter:blur(17px); }
-    .art img { display:block; width:100%; border:7px solid rgba(255,255,255,.75); border-radius:34px; box-shadow:0 25px 45px rgba(13,67,156,.25); }
-    .details-wrap { position:relative; margin-top:-42px; padding-bottom:64px; }
-    .details { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
-    .feature { padding:27px; border:1px solid #dcecff; border-radius:22px; background:#fff; box-shadow:0 14px 30px rgba(48,101,160,.10); }
-    .feature-icon { display:grid; width:44px; height:44px; place-items:center; margin-bottom:15px; border-radius:13px; background:#e5f8ff; color:#1585d4; font-size:1.25rem; }
-    h2 { margin:0 0 7px; font-size:1.15rem; letter-spacing:-.025em; } .feature p { margin:0; color:#60708d; }
-    .about { width:min(920px,calc(100% - 48px)); margin:0 auto 68px; padding:clamp(28px,6vw,56px); border-radius:28px; background:#fff; box-shadow:0 14px 30px rgba(48,101,160,.08); }
-    .section-label { margin:0 0 10px; color:#4572d9; font-weight:850; font-size:.78rem; letter-spacing:.1em; text-transform:uppercase; }
-    .about h2 { margin-bottom:16px; font-size:clamp(1.75rem,4vw,2.5rem); }
-    .about > p { max-width:740px; margin:0 0 16px; color:#60708d; font-size:1.05rem; }
-    .mode-list { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:30px 0; }
-    .mode { padding:18px; border-radius:16px; background:#f2f8ff; } .mode strong { display:block; margin-bottom:4px; } .mode span { color:#60708d; font-size:.92rem; }
-    .game-info { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:34px; padding-top:26px; border-top:1px solid #e3edf8; }
-    .game-info span { display:block; color:#72809a; font-size:.84rem; } .game-info strong { display:block; margin-top:3px; font-size:1.02rem; }
-    footer { padding:28px 24px 42px; color:#6a7893; text-align:center; font-size:.9rem; } footer a { color:#4366cf; font-weight:700; }
-    @media (max-width:760px) { .hero { min-height:auto; } .topbar,.hero-content,.details,.about { width:min(100% - 36px,520px); } .hero-content { grid-template-columns:1fr; gap:28px; min-height:auto; padding:70px 0 92px; text-align:center; } h1,.lead { margin-left:auto; margin-right:auto; } .art { width:min(330px,88%); justify-self:center; order:-1; } .details-wrap { margin-top:-32px; } .details,.mode-list,.game-info { grid-template-columns:1fr; } .play-button { justify-content:center; } }
-    @media (max-width:420px) { .topbar { padding-top:17px; } .privacy { font-size:.8rem; } h1 { font-size:3.25rem; } }
+    :root { --ink:#111b44; --purple:#6150e8; --mist:#edf9ff; }
+    * { box-sizing:border-box; }
+    body { min-height:100vh; margin:0; color:var(--ink); background:#f5f8ff; font:16px/1.6 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    .page { width:min(1040px,calc(100% - 48px)); margin:auto; }
+    header { display:flex; align-items:center; justify-content:space-between; padding:28px 0; }
+    .brand { display:flex; align-items:center; gap:10px; color:inherit; font-size:1.2rem; font-weight:850; letter-spacing:-.03em; text-decoration:none; }
+    .brand span { display:grid; width:32px; height:32px; place-items:center; border-radius:10px; color:#fff; background:var(--purple); }
+    .privacy { color:#506087; font-weight:700; text-decoration:none; }
+    main { padding:32px 0 72px; }
+    .intro { padding:clamp(28px,5vw,52px); border-radius:28px; color:#fff; background:linear-gradient(135deg,#161e4b,#5140bd); box-shadow:0 20px 42px rgba(30,38,104,.18); }
+    h1 { margin:0; font-size:clamp(2.8rem,6vw,4.8rem); line-height:.94; letter-spacing:-.065em; }
+    .intro-copy { max-width:480px; margin:17px 0 0; color:#e5e2ff; font-size:1.05rem; }
+    .intro-cta { display:inline-flex; margin-top:8px; color:#fff; font-weight:800; text-decoration:none; }
+    .intro-cta:hover,.intro-cta:focus-visible { text-decoration:underline; }
+    h2 { margin:34px 0 16px; font-size:1.05rem; letter-spacing:-.02em; }
+    .apps { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,380px)); gap:20px; }
+    .app { display:flex; gap:20px; align-items:center; padding:18px; border:1px solid #dcecff; border-radius:22px; background:#fff; box-shadow:0 12px 24px rgba(48,101,160,.09); color:inherit; text-decoration:none; transition:transform .18s ease,box-shadow .18s ease; }
+    .app:hover,.app:focus-visible { transform:translateY(-4px); box-shadow:0 20px 34px rgba(48,101,160,.15); outline:none; }
+    .app img { width:76px; height:76px; flex:none; border-radius:17px; object-fit:cover; }
+    .app h3 { margin:0 0 5px; font-size:1.3rem; letter-spacing:-.035em; }.app p { margin:0; color:#66748d; font-size:.93rem; }
+    footer { padding:28px 0 40px; color:#71809a; font-size:.9rem; } footer a { color:inherit; text-decoration:none; } footer a:hover,footer a:focus-visible { text-decoration:underline; }
+    @media (max-width:560px) { .page { width:min(100% - 36px,520px); } header { padding-top:20px; } }
   </style>
 </head>
 <body>
-  <header class="hero">
-    <nav class="topbar" aria-label="Ana menü"><a class="brand" href="index.html" aria-label="EbMobile ana sayfa"><span>E</span>EbMobile</a><a class="privacy" href="privacy-policy/index.html">Gizlilik bildirimi</a></nav>
-    <div class="hero-content">
-      <div><span class="eyebrow">EbMobile sunar</span><h1>Last Rung</h1><p class="lead">Doğru anı yakala, zıplamalarını zamanla ve zirveye ulaş. Her turda reflekslerini test et.</p><a class="play-button" href="https://play.google.com/store/apps/details?id=com.ebmobile.sonbasamak" target="_blank" rel="noopener noreferrer"><span class="play-icon">▶</span>Google Play'de indir</a></div>
-      <div class="art"><img src="assets/last-rung-cover.png" alt="Last Rung oyun kapağı"></div>
-    </div>
-  </header>
-  <main class="details-wrap">
-    <section class="details" aria-label="Oyun özellikleri"><article class="feature"><div class="feature-icon">↗</div><h2>Zamanlamanı yakala</h2><p>Tek dokunuşla yönünü değiştir, güvenli inişler yap ve daha yükseğe çık.</p></article><article class="feature"><div class="feature-icon">★</div><h2>Ödülleri topla</h2><p>Altınlarla yeni karakter görünümlerinin kilidini aç ve güçlendiriciler kazan.</p></article><article class="feature"><div class="feature-icon">⚡</div><h2>Farklı modlar</h2><p>Sonsuz modda skor peşine düş; bölümlerde ve düşüş modunda becerini göster.</p></article></section>
-  </main>
-  <section class="about" aria-labelledby="about-title">
-    <p class="section-label">Oyun hakkında</p>
-    <h2 id="about-title">Ne kadar yükseğe çıkabileceğini göster.</h2>
-    <p>Last Rung'ta doğru anı yakala, zıplamalarını zamanla ve zirveye ulaş. Tek dokunuşla hedefinin yönünü değiştir; güvenli inişler yaparken tuzaklardan kaç, altınları topla ve güçlü ödüller kazan.</p>
-    <p>Kolay öğrenilen kontroller, hızlı oyun turları ve giderek zorlaşan engellerle her denemede daha iyi bir skor için oyna.</p>
-    <div class="mode-list" aria-label="Oyun modları"><div class="mode"><strong>Sonsuz mod</strong><span>En yüksek skora ulaş.</span></div><div class="mode"><strong>Bölümler</strong><span>Hassas inişlerle ilerle.</span></div><div class="mode"><strong>Düşüş modu</strong><span>Hareketli, dönen ve kapanan tuzaklardan kaç.</span></div></div>
-    <div class="game-info"><div><span>Sürüm</span><strong>1.2.2</strong></div><div><span>Çıkış tarihi</span><strong>6 Ekim 2026</strong></div><div><span>Gereken Android sürümü</span><strong>8.0 ve sonrası</strong></div></div>
-  </section>
-  <footer>© 2026 EbMobile · Last Rung · <a href="privacy-policy/index.html">Gizlilik Bildirimi</a></footer>
+  <div class="page">
+    <header><a class="brand" href="index.html" aria-label="EbMobile ana sayfa"><span>E</span>EbMobile</a><a class="privacy" href="privacy-policy/index.html">Gizlilik bildirimi</a></header>
+    <main>
+      <section class="intro" aria-labelledby="intro-title"><h1 id="intro-title">EbMobile</h1><p class="intro-copy">Keyifle oynanacak mobil deneyimler tasarlıyoruz.<br><a class="intro-cta" href="https://play.google.com/store/apps/dev?id=8865251460924613045" target="_blank" rel="noopener noreferrer">Mobil Evrenimize Siz de Katılın →</a></p></section>
+      <section aria-labelledby="apps-title">
+        <h2 id="apps-title">Uygulamalar</h2>
+        <div class="apps"><a class="app" href="last-rung/index.html"><img src="assets/last-rung-cover.png" alt="Last Rung oyun kapağı"><div><h3>Last Rung</h3><p>Zamanlamanı yakala, tuzaklardan kaç ve zirveye ulaş.</p></div></a></div>
+      </section>
+    </main>
+    <footer><a href="https://play.google.com/store/apps/dev?id=8865251460924613045" target="_blank" rel="noopener noreferrer">© 2026 EbMobile</a></footer>
+  </div>
 </body>
 </html>
