@@ -14,10 +14,27 @@
     main { padding:0 24px 56px; } article { margin-top:-55px; padding:clamp(28px,6vw,56px); background:var(--white); border:1px solid var(--line); border-radius:20px; box-shadow:0 20px 60px rgba(19,35,75,.13); }.meta { margin:0 0 36px; padding-bottom:22px; color:var(--muted); border-bottom:1px solid var(--line); font-size:.92rem; }
     h2 { margin:42px 0 14px; color:var(--navy); font-size:1.28rem; line-height:1.35; letter-spacing:-.015em; } p { margin:0 0 17px; } ul { margin:0 0 18px; padding-left:22px; } li { margin:7px 0; } a { color:var(--blue); font-weight:650; text-decoration-thickness:1px; text-underline-offset:3px; }.notice { margin-top:34px; padding:24px; border:1px solid #d9e4ff; border-radius:14px; background:var(--blue-light); }.notice h2 { margin-top:0; } footer { padding:0 24px 42px; color:var(--muted); font-size:.9rem; text-align:center; } @media (max-width:540px) { .hero { padding:52px 20px 92px; } main { padding:0 15px 40px; } article { border-radius:16px; } }
     article a { overflow-wrap:anywhere; }
+    .page-header { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; margin-bottom:22px; }
+    .page-header .brand { margin-bottom:0; }
+    .language-switch { display:flex; gap:6px; }
+    .language-switch button { padding:6px 12px; border-radius:8px; color:var(--white); text-decoration:none; }
+    .language-switch button[aria-pressed="true"] { background:var(--white); color:var(--navy); }
+    .language-switch button:hover { text-decoration:underline; }
+    .language-switch button:focus-visible { outline:2px solid var(--white); outline-offset:3px; }
+    [hidden] { display: none !important; }
+    .language-switch button { border: 0; background: transparent; font: inherit; font-weight: 650; cursor: pointer; }
   </style>
+  <script src="../assets/legal-language.js" defer></script>
 </head>
 <body>
-  <header class="hero"><div class="container"><a class="brand" href="../index.html"><img src="../assets/profile-icon-rebuilt-phone-play-512.png" alt=""><span>EbMobile</span></a><span class="label">Kullanım Koşulları</span><h1>Mobil Uygulamalar Kullanım Koşulları</h1><p>Bu koşullar, EbMobile tarafından yayımlanan mobil uygulama ve oyunların kullanımını düzenler.</p></div></header>
+  <div data-language="tr" lang="tr" data-title="Kullanım Koşulları | EbMobile" data-description="EbMobile mobil uygulamaları ve oyunları için kullanım koşulları.">
+  <header class="hero"><div class="container">
+    <div class="page-header">
+      <a class="brand" href="../index.html" aria-label="EbMobile ana sayfa"><img src="../assets/profile-icon-rebuilt-phone-play-512.png" alt=""><span>EbMobile</span></a>
+      <nav class="language-switch" aria-label="Dil seçimi" hidden><button type="button" data-set-language="tr" lang="tr" aria-label="Türkçe" aria-pressed="true">TR</button><button type="button" data-set-language="en" lang="en" aria-label="English" aria-pressed="false">EN</button></nav>
+    </div>
+    <span class="label">Kullanım Koşulları</span><h1>Mobil Uygulamalar Kullanım Koşulları</h1><p>Bu koşullar, EbMobile tarafından yayımlanan mobil uygulama ve oyunların kullanımını düzenler.</p>
+  </div></header>
   <main class="container"><article>
     <p class="meta">Yayıncı: <strong>EbMobile</strong><br>Kapsam: <strong>EbMobile mobil uygulamaları</strong><br>Son güncelleme: <strong>14 Ekim 2026</strong></p>
     <p>Bir EbMobile uygulamasını indirerek, yükleyerek veya kullanarak bu Kullanım Koşullarını kabul etmiş olursunuz. Koşulları kabul etmiyorsanız uygulamayı kullanmayın.</p>
@@ -30,5 +47,29 @@
     <section class="notice"><h2>7. İletişim</h2><p>Bu koşullarla ilgili sorularınız için <a href="mailto:ebmobilestudio@gmail.com">ebmobilestudio@gmail.com</a> adresinden iletişime geçebilirsiniz.</p><p>Ayrıca <a href="../privacy-policy/index.html">Gizlilik Politikamızı</a> inceleyebilirsiniz.</p></section>
   </article></main>
   <footer>© 2026 EbMobile · <a href="../index.html">Ana sayfa</a> · <a href="../privacy-policy/index.html">Gizlilik Politikası</a></footer>
+  </div>
+  <div data-language="en" lang="en" data-title="Mobile Apps Terms of Service | EbMobile" data-description="Terms of service for EbMobile mobile applications and games." hidden>
+  <header class="hero"><div class="container">
+    <div class="page-header">
+      <a class="brand" href="../index.html" aria-label="EbMobile home"><img class="brand-mark" src="../assets/profile-icon-rebuilt-phone-play-512.png" alt=""><span>EbMobile</span></a>
+      <nav class="language-switch" aria-label="Language selection" hidden><button type="button" data-set-language="tr" lang="tr" aria-label="Türkçe" aria-pressed="false">TR</button><button type="button" data-set-language="en" lang="en" aria-label="English" aria-pressed="true">EN</button></nav>
+    </div>
+    <div class="label">Terms of Service</div>
+    <h1>Mobile Apps Terms of Service</h1>
+    <p>These terms govern the use of mobile applications and games published by EbMobile.</p>
+  </div></header>
+  <main class="container"><article>
+    <p class="meta">Publisher: <strong>EbMobile</strong><br>Scope: <strong>EbMobile mobile applications</strong><br>Last updated: <strong>14 October 2026</strong></p>
+    <p>By downloading, installing, or using an EbMobile application, you agree to these Terms of Service. If you do not agree to these terms, do not use the application.</p>
+    <h2>1. Use of the service</h2><p>The applications are intended for personal and lawful use. You may not engage in activities that disrupt the application's operation, compromise its security, or negatively affect other users' experience.</p>
+    <h2>2. Intellectual property</h2><p>The software, images, sounds, text, and other content in the applications belong to EbMobile or the respective rights holders. This content may not be copied, distributed, or used for commercial purposes without written permission.</p>
+    <h2>3. Third-party services</h2><p>Depending on the features used, the applications may use Google Play Games Services and Google AdMob. These services are governed by their own terms and privacy policies. Please review our <a href="../privacy-policy/index.html">Privacy Policy</a> for information about the services used and data processing practices.</p>
+    <h2>4. Ads and in-app content</h2><p>The applications may contain ads or optional in-app content. The availability, price, and scope of this content may change over time. Accepting these Terms of Service does not replace any separate consent required for personalized advertising.</p>
+    <h2>5. Limitation of liability</h2><p>The applications are provided as is. EbMobile does not guarantee that the service will be uninterrupted or error-free. To the extent permitted by applicable law, EbMobile is not liable for indirect damages arising from use of the application.</p>
+    <h2>6. Changes to the terms</h2><p>EbMobile may update these terms as needed. The current version is published on this page. Your continued use of the application means that you accept the updated terms.</p>
+    <section class="notice"><h2>7. Contact</h2><p>For questions about these terms, you can contact us at <a href="mailto:ebmobilestudio@gmail.com">ebmobilestudio@gmail.com</a>.</p><p>You can also review our <a href="../privacy-policy/index.html">Privacy Policy</a>.</p></section>
+  </article></main>
+  <footer>© 2026 EbMobile · <a href="../index.html">Home</a> · <a href="../privacy-policy/index.html">Privacy Policy</a></footer>
+  </div>
 </body>
 </html>
