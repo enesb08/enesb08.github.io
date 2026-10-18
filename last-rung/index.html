@@ -29,21 +29,19 @@
     .art { position:relative; justify-self:end; width:min(430px,100%); transform:rotate(3deg); }
     .art::after { position:absolute; z-index:-1; right:4%; bottom:3%; width:86%; height:13%; content:""; border-radius:50%; background:rgba(0,81,175,.27); filter:blur(17px); }
     .art img { display:block; width:100%; border:7px solid rgba(255,255,255,.75); border-radius:34px; box-shadow:0 25px 45px rgba(13,67,156,.25); }
-    .details-wrap { position:relative; margin-top:-42px; padding-bottom:64px; }
+    .details-wrap { position:relative; margin-top:-42px; }
     .details { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
     .feature { padding:27px; border:1px solid #dcecff; border-radius:22px; background:#fff; box-shadow:0 14px 30px rgba(48,101,160,.10); }
     .feature-icon { display:grid; width:44px; height:44px; place-items:center; margin-bottom:15px; border-radius:13px; background:#e5f8ff; color:#1585d4; font-size:1.25rem; }
     h2 { margin:0 0 7px; font-size:1.15rem; letter-spacing:-.025em; } .feature p { margin:0; color:#60708d; }
-    .about { width:min(920px,calc(100% - 48px)); margin:0 auto 68px; padding:clamp(28px,6vw,56px); border-radius:28px; background:#fff; box-shadow:0 14px 30px rgba(48,101,160,.08); }
+    .about { width:min(920px,calc(100% - 48px)); margin:64px auto 68px; padding:clamp(28px,6vw,56px); border-radius:28px; background:#fff; box-shadow:0 14px 30px rgba(48,101,160,.08); }
     .section-label { margin:0 0 10px; color:#4572d9; font-weight:850; font-size:.78rem; letter-spacing:.1em; text-transform:uppercase; }
     .about h2 { margin-bottom:16px; font-size:clamp(1.75rem,4vw,2.5rem); }
-    .about > p { max-width:740px; margin:0 0 16px; color:#60708d; font-size:1.05rem; }
-    .mode-list { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:30px 0; }
-    .mode { padding:18px; border-radius:16px; background:#f2f8ff; } .mode strong { display:block; margin-bottom:4px; } .mode span { color:#60708d; font-size:.92rem; }
-    .game-info { display:grid; grid-template-columns:repeat(2,1fr); gap:18px; margin-top:34px; padding-top:26px; border-top:1px solid #e3edf8; }
-    .game-info span { display:block; color:#72809a; font-size:.84rem; } .game-info strong { display:block; margin-top:3px; font-size:1.02rem; }
+    .about > p:not(.section-label) { max-width:740px; margin:0 0 16px; color:#60708d; font-size:1.05rem; }
+    .about > p:last-child { margin-bottom:0; }
+    .about ul { max-width:740px; margin:0 0 16px; padding-left:21px; color:#60708d; font-size:1.05rem; }
     footer { padding:28px 24px 42px; color:#6a7893; text-align:center; font-size:.9rem; } footer a { color:#4366cf; font-weight:700; }
-    @media (max-width:760px) { .hero { min-height:auto; } .topbar,.hero-content,.details,.about { width:min(100% - 36px,520px); } .hero-content { grid-template-columns:1fr; gap:28px; min-height:auto; padding:70px 0 92px; text-align:center; } h1,.lead { margin-left:auto; margin-right:auto; } .art { width:min(330px,88%); justify-self:center; order:-1; } .details-wrap { margin-top:-32px; } .details,.mode-list,.game-info { grid-template-columns:1fr; } .play-button { justify-content:center; } }
+    @media (max-width:760px) { .hero { min-height:auto; } .topbar,.hero-content,.details,.about { width:min(100% - 36px,520px); } .hero-content { grid-template-columns:1fr; gap:28px; min-height:auto; padding:70px 0 92px; text-align:center; } h1,.lead { margin-left:auto; margin-right:auto; } .art { width:min(330px,88%); justify-self:center; order:-1; } .details-wrap { margin-top:-32px; } .details { grid-template-columns:1fr; } .play-button { justify-content:center; } }
     @media (max-width:420px) { .topbar { padding-top:17px; } .privacy { font-size:.8rem; } h1 { font-size:3.25rem; } }
   </style>
 </head>
@@ -57,15 +55,17 @@
   </header>
   <main class="details-wrap">
     <section class="details" aria-label="Oyun özellikleri"><article class="feature"><div class="feature-icon">↗</div><h2>Zamanlamanı yakala</h2><p>Tek dokunuşla yönünü değiştir, güvenli inişler yap ve daha yükseğe çık.</p></article><article class="feature"><div class="feature-icon">★</div><h2>Ödülleri topla</h2><p>Altınlarla yeni karakter görünümlerinin kilidini aç ve güçlendiriciler kazan.</p></article><article class="feature"><div class="feature-icon">⚡</div><h2>Farklı modlar</h2><p>Sonsuz modda skor peşine düş; bölümlerde ve düşüş modunda becerini göster.</p></article></section>
-  </main>
   <section class="about" aria-labelledby="about-title">
-    <p class="section-label">Oyun hakkında</p>
-    <h2 id="about-title">Ne kadar yükseğe çıkabileceğini göster.</h2>
-    <p>Last Rung'ta doğru anı yakala, zıplamalarını zamanla ve zirveye ulaş. Tek dokunuşla hedefinin yönünü değiştir; güvenli inişler yaparken tuzaklardan kaç, altınları topla ve güçlü ödüller kazan.</p>
-    <p>Kolay öğrenilen kontroller, hızlı oyun turları ve giderek zorlaşan engellerle her denemede daha iyi bir skor için oyna.</p>
-    <div class="mode-list" aria-label="Oyun modları"><div class="mode"><strong>Sonsuz mod</strong><span>En yüksek skora ulaş.</span></div><div class="mode"><strong>Bölümler</strong><span>Hassas inişlerle ilerle.</span></div><div class="mode"><strong>Düşüş modu</strong><span>Hareketli, dönen ve kapanan tuzaklardan kaç.</span></div></div>
-    <div class="game-info"><div><span>Sürüm</span><strong>1.2.3</strong></div><div><span>Güncellenme tarihi</span><strong>9 Ekim 2026</strong></div><div><span>Gereken Android sürümü</span><strong>8.0 ve sonrası</strong></div><div><span>Çıkış tarihi</span><strong>6 Ekim 2026</strong></div></div>
+    <p class="section-label">Uygulama hakkında</p>
+    <h2 id="about-title">Doğru anı yakala, zirveye ulaş.</h2>
+    <p>Last Rung’ta doğru anı yakala, zıplamalarını zamanla ve zirveye ulaş!</p>
+    <p>Tek dokunuşla hedefinin yönünü değiştir, güvenli inişler yap ve daha yükseğe çık. Yol boyunca tuzaklardan kaç, altınları topla ve güçlü ödüller kazan.</p>
+    <p>Farklı oyun modlarında reflekslerini test et:</p>
+    <ul aria-label="Oyun modları"><li>Sonsuz modda en yüksek skora ulaş.</li><li>Bölümlerde hassas inişlerle ilerle.</li><li>Düşüş modunda hareketli, dönen ve kapanan tuzaklardan kaç.</li></ul>
+    <p>Kazandığın altınlarla yeni karakter görünümlerinin kilidini aç ve güçlendiricilerle avantaj elde et.</p>
+    <p>Kolay öğrenilen kontroller, hızlı oyun turları ve giderek zorlaşan engellerle Last Rung’ta ne kadar yükseğe çıkabileceğini göster!</p>
   </section>
+  </main>
   <footer>© 2026 EbMobile · Last Rung · <a href="../terms-of-service/index.html">Kullanım Koşulları</a> · <a href="../privacy-policy/index.html">Gizlilik Bildirimi</a></footer>
 </body>
 </html>
